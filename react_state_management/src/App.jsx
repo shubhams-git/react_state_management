@@ -1,12 +1,12 @@
-import { useRecoilState, useRecoilValue } from "recoil"
+import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil"
 import { countAtom } from "./store/atoms/count"
 
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
         <Count />
-    </>
+    </RecoilRoot>
   )
 }
 
@@ -18,7 +18,7 @@ function Count(){
 }
 
 function CountRenderer(){
-  const {count} = useRecoilValue(countAtom)
+  const count = useRecoilValue(countAtom)
   return <div>
     {count}
   </div>
