@@ -1,5 +1,5 @@
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
-import { countAtom } from "./store/atoms/count"
+import { countAtom, isEven } from "./store/atoms/count"
 
 
 function App() {
@@ -14,6 +14,7 @@ function Count(){
   return <div>
     <CountRenderer />
     <Buttons />
+    <EvenText />
   </div>
 }
 
@@ -36,6 +37,11 @@ function Buttons(){
     }}>Decrease Count</button>
   </div>
 
+}
+
+function EvenText(){
+  const text = useRecoilValue(isEven)
+  return <b>{text}</b>
 }
 
 export default App
